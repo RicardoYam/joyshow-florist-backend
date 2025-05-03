@@ -1,26 +1,17 @@
 import { Injectable } from '@nestjs/common';
+import { FloristRepository } from './florist.repostory';
+import { Florist } from './schema/florist.schema';
 import { CreateFloristDto } from './dto/create-florist.dto';
-import { UpdateFloristDto } from './dto/update-florist.dto';
 
 @Injectable()
 export class FloristService {
-  create(createFloristDto: CreateFloristDto) {
-    return 'This action adds a new florist';
+  constructor(private readonly floristRepository: FloristRepository) {}
+
+  async create(createFloristDto: CreateFloristDto): Promise<Florist> {
+    return this.floristRepository.create(createFloristDto);
   }
 
-  findAll() {
-    return `This action returns all florist`;
-  }
-
-  findOne(id: number) {
-    return `This action returns a #${id} florist`;
-  }
-
-  update(id: number, updateFloristDto: UpdateFloristDto) {
-    return `This action updates a #${id} florist`;
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} florist`;
+  async findAll(): Promise<Florist[]> {
+    return this.floristRepository.findAll();
   }
 }
