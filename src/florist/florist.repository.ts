@@ -17,10 +17,10 @@ export class FloristRepository {
   }
 
   async findAll(): Promise<Florist[]> {
-    return this.floristModel.find();
+    return this.floristModel.find().populate('type', 'name').exec();
   }
   async findOne(id: string): Promise<Florist | null> {
-    return this.floristModel.findById(id);
+    return this.floristModel.findById(id).populate('type', 'name').exec();
   }
 
   async update(

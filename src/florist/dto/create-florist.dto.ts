@@ -4,4 +4,5 @@ export class CreateFloristDto {
   price: number;
   description: string;
   image: string;
+  type: string[];
 }

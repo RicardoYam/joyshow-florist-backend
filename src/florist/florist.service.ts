@@ -1,5 +1,5 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
-import { FloristRepository } from './florist.repostory';
+import { FloristRepository } from './florist.repository';
 import { Florist } from './schema/florist.schema';
 import { CreateFloristDto } from './dto/create-florist.dto';
 import { UpdateFloristDto } from './dto/update-florist.dto';

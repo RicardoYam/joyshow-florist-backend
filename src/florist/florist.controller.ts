@@ -10,13 +10,13 @@ import {
 import { FloristService } from './florist.service';
 import { CreateFloristDto } from './dto/create-florist.dto';
 import { UpdateFloristDto } from './dto/update-florist.dto';
-
+import { ValidateTypeNamesPipe } from './pipe/validate-type-names.pipe';
 @Controller('florist')
 export class FloristController {
   constructor(private readonly floristService: FloristService) {}
 
   @Post()
-  create(@Body() createFloristDto: CreateFloristDto) {
+  create(@Body(ValidateTypeNamesPipe) createFloristDto: CreateFloristDto) {
     return this.floristService.create(createFloristDto);
   }
 

@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { ConfigModule } from '@nestjs/config';
 import { FloristModule } from './florist/florist.module';
 import { MongooseModule } from '@nestjs/mongoose';
+import { TypeModule } from './type/type.module';
 
 @Module({
   imports: [
@@ -13,6 +14,7 @@ import { MongooseModule } from '@nestjs/mongoose';
     }),
     MongooseModule.forRoot(process.env.MONGO_URI || ''),
     FloristModule,
+    TypeModule,
   ],
   controllers: [AppController],
   providers: [AppService],
