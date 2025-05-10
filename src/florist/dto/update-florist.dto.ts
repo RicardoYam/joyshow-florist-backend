@@ -1,8 +1,7 @@
 import { PartialType } from '@nestjs/mapped-types';
 import { CreateFloristDto } from './create-florist.dto';
-import { IsString, IsNotEmpty, IsOptional } from 'class-validator';
+import { IsString, IsNotEmpty, IsOptional, IsNumber } from 'class-validator';
 export class UpdateFloristDto extends PartialType(CreateFloristDto) {
-  @IsString()
   @IsString()
   @IsNotEmpty()
   @IsOptional()
@@ -12,4 +11,19 @@ export class UpdateFloristDto extends PartialType(CreateFloristDto) {
   @IsNotEmpty()
   @IsOptional()
   size: string;
+
+  @IsNumber()
+  @IsNotEmpty()
+  @IsOptional()
+  price: number;
+
+  @IsString()
+  @IsNotEmpty()
+  @IsOptional()
+  description: string;
+
+  @IsString()
+  @IsNotEmpty()
+  @IsOptional()
+  image: string;
 }
